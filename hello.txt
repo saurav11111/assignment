@@ -1,3 +1,0 @@
-first line -commit 2
- 2nd line added
-h

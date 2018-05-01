@@ -11,17 +11,17 @@ import java.util.Scanner;
 
 
  interface Burger {
-    void Patty();
-    void Sauce();
-    void Cheese();
-    Burgertype getBurger();
+    void addPatty();
+    void addSauce();
+    void addCheese();
+    madeBurger getBurger();
 }
 
- class Burgertype {
+ class madeBurger {
     
     private final LinkedList<String> parts;
     
-    public Burgertype(){
+    public madeBurger(){
         parts = new LinkedList<>();
     }
     
@@ -42,54 +42,54 @@ class Waiter {
     
     public void make(Burger burger){
         myBurger = burger;
-        myBurger.Patty();
-        myBurger.Sauce();
-        myBurger.Cheese();
+        myBurger.addPatty();
+        myBurger.addSauce();
+        myBurger.addCheese();
     }    
 }
 
-class ChickenBurger implements Burger {
+class Chicken implements Burger {
     
-    private final Burgertype burger = new Burgertype();
+    private final madeBurger burger = new madeBurger();
     @Override
-    public void Patty() {
+    public void addPatty() {
         burger.Add("This is the patty for chickenburger");
     }
 
     @Override
-    public void Sauce() {
+    public void addSauce() {
         burger.Add("Sauce for chickenburger");
     }
 
     @Override
-    public void Cheese() {
+    public void addCheese() {
         burger.Add("Cheese for chickenburger");
     }
     @Override
-    public Burgertype getBurger(){
+    public madeBurger getBurger(){
         return burger;
     }
 }
 
-class BeefBurger implements Burger {
+class Beef implements Burger {
     
-    private final Burgertype burger = new Burgertype();
+    private final madeBurger burger = new madeBurger();
     @Override
-    public void Patty() {
+    public void addPatty() {
         burger.Add("This is the patty for beefburger");
     }
 
     @Override
-    public void Sauce() {
+    public void addSauce() {
         burger.Add("Sauce added for beefburger");
     }
 
     @Override
-    public void Cheese() {
+    public void addCheese() {
         burger.Add("Cheese added for beefburger");
     }
     @Override
-    public Burgertype getBurger(){
+    public madeBurger getBurger(){
         return burger;
     }
 }
@@ -113,14 +113,14 @@ public class ShopBurger {
         }
 
         if(input.equals("B")){
-            Burger myburger = new BeefBurger();
+            Burger myburger = new Beef();
             waiter.make(myburger);
-            Burgertype p1 = myburger.getBurger();
+            madeBurger p1 = myburger.getBurger();
             p1.show();
         } else if(input.equals("C")){
-            Burger myburger = new ChickenBurger();
+            Burger myburger = new Chicken();
             waiter.make(myburger);
-            Burgertype p1 = myburger.getBurger();
+            madeBurger p1 = myburger.getBurger();
             p1.show();
         } 
     }
